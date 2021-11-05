@@ -1,8 +1,8 @@
 #include <iostream>
 #include <fstream>
-#include <math.h>
 #include <stdlib.h>
-
+#include <ctime>
+	
 
 using namespace std;
 
@@ -22,13 +22,14 @@ int SonSatiriBul(){
 
 int main (){
     string text;
+    srand((unsigned int)time(NULL));
     int kacKelime;
     int SatirSayisi{SonSatiriBul()};
     ifstream file("list.txt");
 
-    printf("Kac kelime istedigini yaz (Max. %d): ", SatirSayisi);
+    cout << "Kac kelime istedigini yaz (Max. 7): " << "";
     cin >> kacKelime;
-	if (kacKelime > SatirSayisi) return 0;
+	if (kacKelime > SatirSayisi || kacKelime > 7) return 0;
     for (int ii = 0; ii < kacKelime; ii++){
         for (int i = 0; i < rand() % SatirSayisi ; i++)
         {        
@@ -37,7 +38,6 @@ int main (){
         cout << text << " ";
     }
     printf("\n");
-	system("pause");
     return 0;
 }
 
